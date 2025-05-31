@@ -18,7 +18,7 @@ VALUES
   ('Probando la base de datos.', 'Admin');
 `;
 
-async function main() {
+async function populate() {
   console.log("seeding...");
   const client = new Client({
     host: process.env.DB_HOST,
@@ -38,4 +38,4 @@ async function main() {
   }
 }
 
-main();
+module.exports = populate;

@@ -1,4 +1,5 @@
 const db = require('../db/queries')
+const populate = require
 
 exports.messageListGet = async (req, res) => {
     const messages = await db.getAllMessages()
@@ -14,4 +15,9 @@ exports.newMessagePost = async (req, res) => {
     const messageUser = req.body.author
     await db.insertMessage(messageText, messageUser)
     res.redirect('/')
+}
+
+exports.populatedb = async (req, res) => {
+    await populate()
+    res.send('Database seeded')
 }
